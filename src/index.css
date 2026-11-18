@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  --color-canvas: #eef0ef;
+  --color-surface: #f6f7f6;
+  --color-ink: #0e1411;
+  --color-muted: #66706b;
+  --color-line: #e3e7e4;
+
+  --color-brand-50: #ecf7f0;
+  --color-brand-100: #d3eedc;
+  --color-brand-200: #a8dcba;
+  --color-brand-400: #3fae6c;
+  --color-brand-500: #16914b;
+  --color-brand-600: #0b7a3e;
+  --color-brand-700: #0b6b3a;
+  --color-brand-800: #0a5430;
+  --color-brand-900: #093f25;
+
+  --color-lime: #b7f36b;
+
+  --shadow-card: 0 1px 0 rgb(14 20 17 / 0.04), 0 1px 3px rgb(14 20 17 / 0.06);
+  --shadow-float: 0 18px 40px -16px rgb(9 63 37 / 0.35);
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { @apply bg-brand-200 text-brand-900; }
+}
+
+@utility card {
+  @apply rounded-2xl border border-line bg-white shadow-card;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
